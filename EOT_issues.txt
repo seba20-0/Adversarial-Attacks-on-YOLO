@@ -1,0 +1,7 @@
+I dont know if EOT is working or if it is being weird.. i targeted the model to classify class 22 to class 1 but it classifies it to class 27?? 
+
+Why is the perturbed image in green , idk ? if we color correct it , will the model be fooled?
+
+Increasing the number of iterations just makes the thing undetectable.. how do we increase the confidence of wrong class?
+
+IDKKKK , i tried everything _/|\_
