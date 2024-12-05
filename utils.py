@@ -1,5 +1,4 @@
 # This is a utils file for all related functions to avoid repetition in code
-
 # Backbone extraction of YOLO
 from ultralytics import YOLO
 import torch
@@ -7,7 +6,6 @@ import torch.nn as nn
 from torchvision import transforms
 from PIL import Image
 import matplotlib.pyplot as plt
-model_path = 'train/weights/best.pt'
 
 class YOLOClassifier:
     def __init__(self, model_path, num_classes):
@@ -24,16 +22,11 @@ class YOLOClassifier:
         )
 
         # Define preprocessing
-        self.preprocess = transforms.Compose([
+        self.preprocess = transforms.Compose([ 
             transforms.Resize((416, 416)),  # Resize for YOLO input
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
-
-    def _get_output_channels(self):
-        sample_image = torch.randn(1, 3, 416, 416)  # Random input
-        sample_output = self.backbone(sample_image)
-        return sample_output.shape[1]  # Output channels
 
     def preprocess_image(self, image_path):
         image = Image.open(image_path).convert("RGB")
