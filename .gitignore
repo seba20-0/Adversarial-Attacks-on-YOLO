@@ -1,0 +1,18 @@
+# Ignore dataset files with Zone Identifier streams
+dataset/*:Zone.Identifier
+
+# Ignore image files in specific folders
+dataset/Truck traffic is prohibited/*.jpg
+dataset/Turn left ahead/*.jpg
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore temporary files
+*.tmp
+*.log
+
+# Ignore Windows system files
+Thumbs.db
+Desktop.ini
