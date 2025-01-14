@@ -38,7 +38,7 @@ To get started with this repository, follow these steps:
    ```
 ## Usage
 
-### Available Attacks
+### Available-Attacks
 `BIM (Basic Iterative Method)`: This attack generates adversarial examples by iteratively applying small perturbations to the input image, constrained by an epsilon value.
 
 `FGSM (Fast Gradient Sign Method)`: This attack computes the adversarial perturbation by using the gradient of the loss with respect to the input image.
@@ -49,5 +49,25 @@ To get started with this repository, follow these steps:
 
 
 ## Example Commands
-You can run the script from the command line to apply an attack to an image and visualize the results.
+---- working on it ----
+## Dependencies
+The project requires the following libraries:
 
+`torch`: PyTorch framework for implementing the attacks and running YOLOv8.
+
+`ultralytics`: For YOLOv8 model loading and inference.
+
+`numpy`: Array operations.
+
+`Pillow`: Image processing.
+
+`matplotlib`: Visualization of results.
+
+`roboflow`: for dataset.
+
+You can install all dependencies with:
+```bash
+pip install -r requirements.txt
+```
+## License
+This repository is licensed under the Apache License. See the [LICENSE](LICENSE) file for more details.
