@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class BIM():
-    def __init__(self , epsilon, alpha, num_iterations):
+    def __init__(self , epsilon, alpha, num_iterations , targeted):
         """
         Basic Iterative Method (BIM) for generating adversarial examples.
 
@@ -14,6 +14,7 @@ class BIM():
         self.epsilon = epsilon
         self.alpha = alpha 
         self.num_iterations = num_iterations
+        self.targeted = targeted
     def attack(self , model , image , label):
         """
         Generates an adversarial example using BIM.
@@ -45,7 +46,10 @@ class BIM():
             
             # Perform a step similar to FGSM
             grad_sign = perturbed_image.grad.data.sign()
-            perturbed_image = perturbed_image + self.alpha * grad_sign
+            if self.targeted:
+                perturbed_image = perturbed_image - self.alpha * grad_sign
+            else:
+                perturbed_image = perturbed_image + self.alpha * grad_sign
             
             # Clip the adversarial image to maintain the epsilon constraint [x - epsilon , x + epsilon] L infinty norm
             perturbed_image = torch.clamp(perturbed_image, image - self.epsilon, image + self.epsilon)
